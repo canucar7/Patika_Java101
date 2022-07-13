@@ -17,11 +17,11 @@ public class Employee {
 
     public double tax(){
 
-        if (salary<1000){
-            return salary;
+        if (this.salary<1000){
+            return this.salary;
         }
         else {
-            double taxCost = salary * 0.03;
+            double taxCost = this.salary * 0.03;
             return taxCost;
         }
 
@@ -30,9 +30,9 @@ public class Employee {
 
 
      public double bonus(){
-        double extraHour=workHours - 40;
+        double extraHour=this.workHours - 40;
 
-        if (workHours>40){
+        if (this.workHours>40){
          double bonusSalary = extraHour*30;
          return bonusSalary;
 
@@ -44,23 +44,23 @@ public class Employee {
 
     public double raiseSalary(){
 
-        if (hireYear<=0 || hireYear>2021){
+        if (this.hireYear<=0 || this.hireYear>2021){
             System.out.println("Geçersiz bir çalışma yılı girdiniz, tekrar kontrol ediniz!");
 
         }else {
-            int diffYear= 2021 - hireYear;
+            int diffYear= 2021 - this.hireYear;
             double costOfRaise;
 
             if (diffYear<10 && diffYear>0){
-                costOfRaise = salary * 0.05;
+                costOfRaise = this.salary * 0.05;
                 return costOfRaise;
             }
             else if (diffYear>9 && diffYear<20){
-                costOfRaise = salary * 0.1;
+                costOfRaise = this.salary * 0.1;
                 return costOfRaise;
             }
             else if (diffYear>19){
-                costOfRaise = salary * 0.15;
+                costOfRaise = this.salary * 0.15;
                 return costOfRaise;
             } else if (diffYear==0) {
                 return 0;
@@ -75,13 +75,13 @@ public class Employee {
 
     public String toString(){
 
-        double tot = salary +bonus() - tax();
-        double total = salary -tax() + bonus() + raiseSalary();
+        double tot = this.salary +bonus() - tax();
+        double total = this.salary -tax() + bonus() + raiseSalary();
 
-        System.out.println("Adı : " + name +
-                "\nMaaşı : " + salary +
-                "\nÇalişma saati : " + workHours +
-                "\nBaşlangıç yılı : " + hireYear +
+        System.out.println("Adı : " + this.name +
+                "\nMaaşı : " + this.salary +
+                "\nÇalişma saati : " + this.workHours +
+                "\nBaşlangıç yılı : " + this.hireYear +
                 "\nVergi :  " + tax() +
                 "\nBonus : " + bonus() +
                 "\nMaaş artışı : " + raiseSalary() +
